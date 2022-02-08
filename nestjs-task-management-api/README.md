@@ -32,9 +32,21 @@
 $ npm install
 ```
 
+## Running Database
+
+```
+docker-compose up -d
+```
+
+## Acess Pgadmin
+
+```
+http://localhost:16543
+```
+
 ## Running the app
 
-```bash
+```
 # development
 $ npm run start
 
@@ -67,6 +79,18 @@ $ npm run test:cov
 
 ```
 https://github.com/typeorm/typeorm/blob/master/docs/active-record-data-mapper.md
+```
+
+## Init a module
+
+```
+nest g module [module name]
+```
+
+## API Documentation
+
+```
+https://documenter.getpostman.com/view/5267825/UVeJKQsc
 ```
 
 ## Support
