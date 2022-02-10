@@ -74,6 +74,7 @@ $ npm run test:cov
 
 - class-validator
 - class-transformer
+- bcrypt
 
 ## Pattern database choose
 
