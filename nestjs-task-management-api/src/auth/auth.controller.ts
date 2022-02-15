@@ -1,4 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 
@@ -8,11 +9,21 @@ export class AuthController {
 
   @Post('/signup')
   signup(@Body() authCredentialsDto: AuthCredentialsDto): Promise<void> {
-    return this.authService.signup(authCredentialsDto);
+    return this.authService.signUp(authCredentialsDto);
   }
 
   @Post('/signin')
-  signin(@Body() authCredentialsDto: AuthCredentialsDto): Promise<string> {
-    return this.authService.signin(authCredentialsDto);
+  signin(
+    @Body() authCredentialsDto: AuthCredentialsDto,
+  ): Promise<{ accessToken: string }> {
+    return this.authService.signIn(authCredentialsDto);
+  }
+
+  // using Useguards Alway it will pass by JwtStrategy.validate
+  @Post('/authenticatedroute')
+  @UseGuards(AuthGuard())
+  authenticated(@Req() req) {
+    console.log(req);
+    return `I'm Authenticated body`;
   }
 }

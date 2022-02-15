@@ -75,6 +75,11 @@ $ npm run test:cov
 - class-validator
 - class-transformer
 - bcrypt
+- @nestjs/jwt
+- @nestjs/passport
+- passport
+- passport-jwt
+- @types/passport-jwt
 
 ## Pattern database choose
 
